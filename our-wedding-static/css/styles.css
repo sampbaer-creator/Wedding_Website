@@ -1,0 +1,63 @@
+:root {
+  --dusty-blue: #A8C3D1;
+  --sage-green: #B7C9A9;
+  --blush-pink: #F3CFC6;
+  --neutral: #FAF9F7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Quicksand', system-ui, sans-serif;
+  background-color: var(--neutral);
+  color: #374151;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+header {
+  backdrop-filter: blur(8px);
+}
+
+/* Buttons & links */
+a, button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Accent buttons */
+.btn-accent {
+  background: linear-gradient(90deg, var(--dusty-blue), var(--sage-green));
+  color: white;
+}
+.btn-accent:hover {
+  opacity: 0.9;
+}
+
+/* Card styling */
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+/* Countdown */
+#countdown {
+  font-weight: bold;
+  color: var(--sage-green);
+}
+
+/* Subtle fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.is-visible {
+  opacity: 1;
+  transform: none;
+}
