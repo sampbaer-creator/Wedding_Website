@@ -8,15 +8,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="antialiased bg-[color:var(--neutral)] text-gray-800">
+<body class="antialiased bg-white text-gray-800">
   <header class="bg-white/80 sticky top-0 z-50 shadow-sm backdrop-blur">
     <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="font-display text-2xl text-[color:var(--dusty-blue)]">Samuel & Kelcee Baer</a>
+      <a href="index.html" class="font-display text-2xl text-blue-700">Samuel & Kelcee Baer</a>
       <nav class="hidden md:flex space-x-4 text-sm">
-        <a href="index.html" class="hover:text-[color:var(--sage-green)]">Home</a>
-        <a href="rsvp.html" class="hover:text-[color:var(--sage-green)]">RSVP</a>
-        <a href="registry.html" class="hover:text-[color:var(--sage-green)]">Registry</a>
-        <a href="event-details.html" class="hover:text-[color:var(--sage-green)]">Event Details</a>
+        <a href="index.html" class="hover:text-green-600">Home</a>
+        <a href="rsvp.html" class="hover:text-green-600">RSVP</a>
+        <a href="registry.html" class="hover:text-green-600">Registry</a>
+        <a href="event-details.html" class="hover:text-green-600">Event Details</a>
       </nav>
     </div>
   </header>
@@ -25,15 +25,15 @@
     <!-- Hero -->
     <section class="grid md:grid-cols-2 gap-8 items-center">
       <div>
-        <h1 class="text-5xl font-display text-[color:var(--dusty-blue)] mb-4">We’re getting married!</h1>
-        <p class="text-lg mb-4">Join us on <strong id="wedding-date">June 5, 2026</strong> at the Lindon Utah Temple, with a celebration at the River Bridge Event Center.</p>
+        <h1 class="text-5xl font-display text-blue-700 mb-4">We’re getting married!</h1>
+        <p class="text-lg mb-4">Join us on <strong>June 5, 2026</strong> at the Lindon Utah Temple, with a celebration at the River Bridge Event Center.</p>
 
         <div class="flex items-center gap-4">
-          <div class="p-4 bg-white rounded-lg shadow">
-            <div id="countdown" class="text-3xl"></div>
+          <div class="p-4 bg-white rounded-lg shadow text-center">
+            <div id="countdown" class="text-3xl font-semibold"></div>
             <p class="text-sm text-gray-500">until the big day</p>
           </div>
-          <a href="rsvp.html" class="btn-accent px-5 py-3 rounded-md shadow">RSVP Now</a>
+          <a href="rsvp.html" class="bg-blue-700 text-white px-5 py-3 rounded-md shadow hover:opacity-90">RSVP Now</a>
         </div>
       </div>
 
@@ -43,8 +43,8 @@
     </section>
 
     <!-- Gallery -->
-    <section class="card">
-      <h2 class="text-2xl font-display text-[color:var(--sage-green)] mb-4">Our Story in Photos</h2>
+    <section>
+      <h2 class="text-2xl font-display text-green-600 mb-4">Our Story in Photos</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
         <img src="wedding_2.jpg" alt="Wedding photo 2" class="rounded-lg shadow-md object-cover h-48 w-full">
         <img src="wedding_3.jpg" alt="Wedding photo 3" class="rounded-lg shadow-md object-cover h-48 w-full">
@@ -53,8 +53,8 @@
       </div>
     </section>
 
-    <section class="card text-center">
-      <h2 class="text-2xl font-display text-[color:var(--sage-green)] mb-2">Welcome</h2>
+    <section class="text-center">
+      <h2 class="text-2xl font-display text-green-600 mb-2">Welcome</h2>
       <p>We’re so excited to celebrate with you! Explore the pages for our registry, event details, and RSVP options. Thank you for being part of our day.</p>
     </section>
   </main>
@@ -63,7 +63,21 @@
     © 2026 Samuel & Kelcee Baer — All Rights Reserved
   </footer>
 
-  <script type="module" src="js/app.js"></script>
+  <script>
+    const countdownEl = document.getElementById('countdown');
+    const weddingDate = new Date('June 5, 2026 00:00:00').getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+      if (diff <= 0) {
+        countdownEl.textContent = "Today's the day! 💍";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      countdownEl.textContent = `${days} days, ${hours} hours`;
+    }, 1000);
+  </script>
 </body>
 </html>
-
