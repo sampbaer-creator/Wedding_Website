@@ -5,36 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Samuel & Kelcee — Our Wedding</title>
 
- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <style>
+    :root {
+      --dusty-blue: #A8C3D1;
+      --sage-green: #B7C9A9;
+      --blush-pink: #F3CFC6;
+      --neutral: #FAF9F7;
+      --deep-olive: #5A6A52;
+      --rich-cream: #F5F1E8;
+      --gold-accent: #C4B998;
+    }
+  </style>
 
+  <!-- Tailwind with forms + typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Custom styles -->
   <link rel="stylesheet" href="css/styles.css">
+
+    /* Slide-in mobile menu */
+    #mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    #mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    body {
+      background-color: var(--neutral);
+    }
+
+    .btn-accent {
+      background: linear-gradient(90deg, var(--sage-green), var(--dusty-blue));
+      color: white;
+      border-radius: 999px;
+      padding: 0.6rem 1.4rem;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: 0.2s ease-in-out;
+    }
+    .btn-accent:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      opacity: 0.95;
+    }
+
+    .card {
+      background: white;
+      padding: 1.75rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .is-visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
 </head>
-<body class="antialiased bg-[color:var(--neutral)] text-gray-800">
+<body class="antialiased text-gray-800 font-sans">
 
   <!-- HEADER -->
   <header class="bg-white/80 sticky top-0 z-50 shadow-sm backdrop-blur">
     <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="font-display text-2xl text-[color:var(--dusty-blue)]">Samuel & Kelcee Baer</a>
+      <a href="index.html" class="font-display text-2xl" style="color: var(--dusty-blue)">Samuel & Kelcee Baer</a>
 
       <!-- Desktop nav -->
       <nav class="hidden md:flex space-x-4 text-sm font-semibold">
-        <a href="index.html" class="text-[color:var(--dusty-blue)] hover:text-[color:var(--sage-green)]">Home</a>
-        <a href="rsvp.html" class="hover:text-[color:var(--sage-green)]">RSVP</a>
-        <a href="registry.html" class="hover:text-[color:var(--sage-green)]">Registry</a>
-        <a href="event-details.html" class="hover:text-[color:var(--sage-green)]">Event Details</a>
+        <a href="index.html" style="color: var(--dusty-blue)" class="hover:text-[var(--sage-green)]">Home</a>
+        <a href="rsvp.html" class="hover:text-[var(--sage-green)]">RSVP</a>
+        <a href="registry.html" class="hover:text-[var(--sage-green)]">Registry</a>
+        <a href="event-details.html" class="hover:text-[var(--sage-green)]">Event Details</a>
       </nav>
 
       <!-- Mobile menu button -->
-      <button id="menu-btn" class="md:hidden text-[color:var(--dusty-blue)] text-2xl font-bold focus:outline-none">☰</button>
+      <button id="menu-btn" class="md:hidden focus:outline-none w-8 h-8 flex flex-col justify-center items-center" style="color: var(--dusty-blue)">
+        <span class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
+        <span class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300 mt-1"></span>
+        <span class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300 mt-1"></span>
+      </button>
     </div>
 
-    <!-- Mobile dropdown -->
-    <div id="mobile-menu" class="hidden flex flex-col items-center bg-white border-t border-gray-200 md:hidden py-3 space-y-2">
-      <a href="index.html" class="text-[color:var(--dusty-blue)] hover:text-[color:var(--sage-green)]">Home</a>
-      <a href="rsvp.html" class="hover:text-[color:var(--sage-green)]">RSVP</a>
-      <a href="registry.html" class="hover:text-[color:var(--sage-green)]">Registry</a>
-      <a href="event-details.html" class="hover:text-[color:var(--sage-green)]">Event Details</a>
+    <!-- Mobile dropdown (slide from left) -->
+    <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-40 flex flex-col p-6 space-y-4 md:hidden">
+      <a href="index.html" style="color: var(--dusty-blue)" class="hover:text-[var(--sage-green)]">Home</a>
+      <a href="rsvp.html" class="hover:text-[var(--sage-green)]">RSVP</a>
+      <a href="registry.html" class="hover:text-[var(--sage-green)]">Registry</a>
+      <a href="event-details.html" class="hover:text-[var(--sage-green)]">Event Details</a>
     </div>
   </header>
 
@@ -44,7 +111,7 @@
     <!-- Hero Section -->
     <section class="grid md:grid-cols-2 gap-10 items-center">
       <div class="fade-in">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-display text-[color:var(--dusty-blue)] mb-4">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-display mb-4" style="color: var(--dusty-blue)">
           We’re getting married!
         </h1>
         <p class="text-base sm:text-lg mb-6 text-gray-700">
@@ -54,7 +121,7 @@
 
         <div class="flex flex-wrap items-center gap-4">
           <div class="p-4 bg-white rounded-lg shadow text-center flex-1 sm:flex-none">
-            <div id="countdown" class="text-2xl sm:text-3xl font-semibold text-[color:var(--sage-green)]"></div>
+            <div id="countdown" class="text-2xl sm:text-3xl font-semibold" style="color: var(--sage-green)"></div>
             <p class="text-xs sm:text-sm text-gray-500">until the big day</p>
           </div>
           <a href="rsvp.html" class="btn-accent text-center">RSVP Now</a>
@@ -68,7 +135,7 @@
 
     <!-- Gallery -->
     <section class="fade-in">
-      <h2 class="text-2xl font-display text-[color:var(--sage-green)] mb-4 text-center sm:text-left">
+      <h2 class="text-2xl font-display mb-4 text-center sm:text-left" style="color: var(--sage-green)">
         Our Story in Photos
       </h2>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -81,7 +148,7 @@
 
     <!-- Welcome Message -->
     <section class="card text-center fade-in">
-      <h2 class="text-2xl font-display text-[color:var(--dusty-blue)] mb-3">Welcome</h2>
+      <h2 class="text-2xl font-display mb-3" style="color: var(--dusty-blue)">Welcome</h2>
       <p class="text-gray-700">
         We’re so excited to celebrate with you! Explore the pages for our registry,
         event details, and RSVP options. Thank you for being part of our special day.
@@ -112,10 +179,13 @@
       countdownEl.textContent = `${days} days, ${hours} hours`;
     }, 1000);
 
-    // Mobile Menu Toggle
+    // Mobile Menu Toggle (slide from left)
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
 
     // Fade-in animation
     document.addEventListener('DOMContentLoaded', () => {
