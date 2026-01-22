@@ -5,18 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Samuel & Kelcee — Our Wedding</title>
 
-  <style>
-    :root {
-      --dusty-blue: #A8C3D1;
-      --sage-green: #B7C9A9;
-      --blush-pink: #F3CFC6;
-      --neutral: #FAF9F7;
-      --deep-olive: #5A6A52;
-      --rich-cream: #F5F1E8;
-      --gold-accent: #C4B998;
-    }
-  </style>
-
   <!-- Tailwind with forms + typography -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
 
@@ -25,6 +13,14 @@
 
   <!-- Custom styles -->
   <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    :root {
+      --dusty-blue: #A8C3D1;
+      --sage-green: #B7C9A9;
+      --blush-pink: #F3CFC6;
+      --neutral: #FAF9F7;
+    }
 
     /* Slide-in mobile menu */
     #mobile-menu {
@@ -89,11 +85,7 @@
       </nav>
 
       <!-- Mobile menu button -->
-      <button id="menu-btn" class="md:hidden focus:outline-none w-8 h-8 flex flex-col justify-center items-center" style="color: var(--dusty-blue)">
-        <span class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
-        <span class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300 mt-1"></span>
-        <span class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300 mt-1"></span>
-      </button>
+      <button id="menu-btn" class="md:hidden text-2xl font-bold focus:outline-none" style="color: var(--dusty-blue)">☰</button>
     </div>
 
     <!-- Mobile dropdown (slide from left) -->
