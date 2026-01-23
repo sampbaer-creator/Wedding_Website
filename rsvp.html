@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RSVP — Samuel & Kelcee's Wedding</title>
+  <title>INFO — Samuel & Kelcee's Wedding</title>
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
@@ -74,7 +74,7 @@
       <a href="index.html" class="font-display text-2xl" style="color: var(--dusty-blue)">Samuel & Kelcee Baer</a>
       <nav class="hidden md:flex space-x-4 text-sm font-semibold">
         <a href="index.html" style="color: var(--dusty-blue)" class="hover:text-[var(--sage-green)]">Home</a>
-        <a href="rsvp.html" class="hover:text-[var(--sage-green)]">RSVP</a>
+        <a href="rsvp.html" class="hover:text-[var(--sage-green)]">Address</a>
         <a href="registry.html" class="hover:text-[var(--sage-green)]">Registry</a>
         <a href="event-details.html" class="hover:text-[var(--sage-green)]">Event Details</a>
       </nav>
@@ -88,15 +88,15 @@
   <!-- Mobile menu -->
   <nav id="mobile-menu" class="md:hidden">
     <a href="index.html" style="color: var(--dusty-blue)" class="hover:text-[var(--sage-green)] text-lg font-semibold">Home</a>
-    <a href="rsvp.html" class="hover:text-[var(--sage-green)] text-lg font-semibold">RSVP</a>
+    <a href="rsvp.html" class="hover:text-[var(--sage-green)] text-lg font-semibold">Address</a>
     <a href="registry.html" class="hover:text-[var(--sage-green)] text-lg font-semibold">Registry</a>
     <a href="event-details.html" class="hover:text-[var(--sage-green)] text-lg font-semibold">Event Details</a>
   </nav>
 
   <!-- MAIN -->
   <main class="max-w-2xl mx-auto px-4 sm:px-6 py-10 space-y-8 fade-in">
-    <h1 class="text-3xl font-display mb-2" style="color: var(--dusty-blue)">RSVP</h1>
-    <p>Please let us know if you can celebrate with us!</p>
+    <h1 class="text-3xl font-display mb-2" style="color: var(--dusty-blue)">REQUEST INVITATION</h1>
+    <p>We would love for you to come celebrate with us! Please let us know your information below.</p>
     <img src="wedding_2.jpg" alt="Couple photo" class="rounded-lg my-6 shadow-md">
 
     <form class="card space-y-4" action="https://formspree.io/f/mzddaqka" method="POST">
@@ -111,22 +111,28 @@
         </label>
         <label class="block md:col-span-2">
           <span class="text-sm font-semibold">Address</span>
-          <input name="address" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-[var(--sage-green)]" />
+          <input name="address" required class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-[var(--sage-green)]" />
         </label>
-        <label class="block">
-          <span class="text-sm font-semibold">RSVP</span>
-          <select name="rsvpStatus" required class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-[var(--sage-green)]">
-            <option value="Attending">Attending</option>
-            <option value="Not Attending">Not Attending</option>
-          </select>
-        </label>
-        <label class="block">
-          <span class="text-sm font-semibold">Guests</span>
-          <input name="guests" type="number" min="0" value="1" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-[var(--sage-green)]" />
-        </label>
+
+        <!-- City, State, Zip -->
+        <div class="grid md:grid-cols-3 gap-4 md:col-span-2">
+          <label class="block">
+            <span class="text-sm font-semibold">City</span>
+            <input name="city" required class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-[var(--sage-green)]" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-semibold">State</span>
+            <input name="state" required class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-[var(--sage-green)]" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-semibold">Zip Code</span>
+            <input name="zip" required pattern="\d{5}" title="Please enter a valid 5-digit zip code" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-[var(--sage-green)]" />
+          </label>
+        </div>
       </div>
+
       <div class="mt-6">
-        <button type="submit" class="btn-accent">Submit RSVP</button>
+        <button type="submit" class="btn-accent">Submit Info</button>
       </div>
     </form>
   </main>
