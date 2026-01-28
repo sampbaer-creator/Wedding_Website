@@ -123,11 +123,18 @@
           <label class="block">
             <span class="text-sm font-semibold">State</span>
             <input name="state" required class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-[var(--sage-green)]" />
-          </label>
+         </label>
           <label class="block">
-            <span class="text-sm font-semibold">Zip Code</span>
-            <input name="zip" required pattern="\d{5}" title="Please enter a valid 5-digit zip code" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-[var(--sage-green)]" />
-          </label>
+            <span class="text-sm font-semibold">Postal / Zip Code</span>
+              <input 
+                name="zip"
+                required
+                pattern="[A-Za-z0-9\s\-]{3,10}"
+                title="Please enter a valid postal code"
+                class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-[var(--sage-green)]"
+              />
+</label>
+
         </div>
       </div>
 
@@ -162,4 +169,5 @@
   </script>
 </body>
 </html>
+
 
